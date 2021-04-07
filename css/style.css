@@ -227,6 +227,8 @@ body {
     animation-play-state: paused;
   }
 
+  
+
   .gallery__list {
     grid-template-columns: repeat(3, 1fr);
   }
