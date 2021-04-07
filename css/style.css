@@ -1,0 +1,241 @@
+:root {
+  --orange-color: #FF6332;
+  --white-color: #FFFFFF;
+  --black-color: #000000;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 18px;
+  font-family: 'Roboto', 'Arial', sans-serif;
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: var(--white-color);
+  background-color: var(--white-color);
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+
+.header {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  background-color: var(--black-color);
+  background-image: url('../img/hero-bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.header .container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.header__headline {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: 140%;
+}
+
+.header__headline b {
+  font-weight: 900;
+  color: var(--orange-color);
+}
+
+.header__arrow {
+  position: absolute;
+  bottom: 70px;
+  width: 30px;
+  height: 30px;
+  text-decoration: none;
+  background-image: url('../img/chevron-down.svg');
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  animation-name: animateArrow;
+  animation-duration: 2.5s;
+  animation-timing-function: ease-in;
+  animation-iteration-count: infinite;
+}
+
+.gallery {
+  padding: 64px 0;
+}
+
+.gallery__list {
+  display: grid;
+  grid-gap: 32px;
+}
+
+.gallery__list li {
+  position: relative;
+  grid-gap: 32px;
+  overflow: hidden;
+}
+
+.gallery__list li::after {
+  content: none;
+  transition-property: background-color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.gallery__list li:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.gallery__list img {
+  width: 100%;
+}
+
+.gallery__list li > span {
+  position: absolute;
+  top: -100%;
+  left: 50%;
+  z-index: 1;
+  font-size: 20px;
+  font-weight: 900;
+  text-transform: uppercase;
+  transform: translate(-50%, -50%);
+  transition-property: top;
+  transition-duration: 0.4s;
+  transition-timing-function: ease-in;
+}
+
+.gallery__list li:hover > span {
+  top: 50%;
+}
+
+.instagram-feed {
+  position: relative;
+}
+
+.instagram-feed::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.instagram-feed__list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.instagram-feed__list img {
+  width: 100%;
+}
+
+.instagram-feed__hashtag {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 28px;
+  text-transform: uppercase;
+  line-height: 140%;
+  z-index: 1;
+}
+
+.instagram-feed__hashtag b {
+  font-weight: 900;
+  color: var(--orange-color);
+}
+
+.footer {
+  min-height: 70px;
+  display: flex;
+  background-color: var(--black-color);
+}
+
+.footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes animateArrow {
+  0%, 50%, 100% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(15px);
+  }
+  75% {
+    transform: translateY(20px);
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .gallery__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .instagram-feed__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .header__headline {
+    font-size: 48px;
+  }
+
+  .header__arrow:hover {
+    animation-play-state: paused;
+  }
+
+  .gallery__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .gallery__list li > span {
+    font-size: 30px;
+  }
+
+  .instagram-feed__hashtag {
+    font-size: 48px;
+  }
+}
