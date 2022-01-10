@@ -35,7 +35,7 @@ body {
   min-height: 100vh;
   display: flex;
   background-color: var(--black-color);
-  background-image: url('../img/hero-bg.png');
+  background-image: url('../img/hero-bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 50% 50%;
@@ -48,7 +48,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.49);
 }
 
 .header .container {
